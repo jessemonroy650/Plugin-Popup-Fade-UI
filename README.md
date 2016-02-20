@@ -12,8 +12,9 @@ There are five (5) modules to this object.
 2. toggle()    - toggle the visibility of the popup (no parameters)
 3. message()   - sets the message, colors and "fade out" in the popup.
 4. fire()      - sets the message and toggles in one function
-1. extingish() - sets a new message before a "fade out"
+5. extingish() - sets a new message before a "fade out"
 
+**more detail**
 
 - `popup.init()` allows you to override the default DOM `id` for this popup.
 - `popup.toggle()` you should not have to use.
