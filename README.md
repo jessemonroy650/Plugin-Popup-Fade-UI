@@ -16,11 +16,11 @@ There are five (5) modules to this object.
 
 **more detail**
 
-- `popup.init()` allows you to override the default DOM `id` for this popup.
+- `popup.init()` allows you to override the default DOM `id`
 - `popup.toggle()` you should not have to use.
 - `popup.message()` allows you to set the message and colors.
 - `popup.fired()` runs `popup.message()` and `popup.toggle()`
-- `popup.extingish()` allows you to reset the message, colors, and wait for the previous message to show a minimum amount of time (`minShowTime`). It also has a `timeout` to run the "fade out".
+- `popup.extingish()` allows you to reset the message, colors, and wait for the previous message to show a minimum amount of time (`minShowTime`). It also has a `timeout` to the "fade out".
 
 ## init() ##
 
@@ -29,6 +29,13 @@ This function takes three (3) parameters.
 - timeout - milliseconds to delay before the element starts to fade out, defaults to 7000 
 - id      - element `id` of the popup, defaults to 'popup'
 - button  - button to tie the `popup.toggle()` to, defaults to 'toggle'. 
+
+*Example:* `popup.init({'timeout':5000,'id':'mymessagebox','button':'mybutton'});`
+
+With the example,
+- the `timeout` is set to 5000 milliseconds (5 seconds)
+- the `id` of the &lt;div&gt; that will hold me message is 'mymessagebox'
+- the `id` of the &lt;button&gt; that is used to toggle the message is named 'mybutton'.
 
 ## message() ##
 
