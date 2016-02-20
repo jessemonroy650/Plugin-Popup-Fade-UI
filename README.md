@@ -28,7 +28,7 @@ There are five (5) modules to this object.
 - `popup.fired()` runs `popup.message()` and `popup.toggle()` in sequence.
 - `popup.extingish()` allows you to reset the message, colors, and wait for the previous message to show a minimum amount of time (`minShowTime`). It also has a `timeout` to the "fade out".
 
-## init() ##
+## `popup.init()` ##
 
 This function takes three (3) parameters.
 
@@ -43,7 +43,7 @@ With the example,
 - the `id` of the &lt;div&gt; that will hold me message is 'mymessagebox'.
 - the `id` of the &lt;button&gt; that is used to toggle the message is named 'mybutton'.
 
-## message() ##
+## `popup.message()` ##
 
 This function takes three (3) parameters - as a JSON.
 
@@ -61,7 +61,7 @@ With the example,
 - the `backgroundColor` (background-color) of the "message box" is set to 'green'.
 - the `minShowTime` (the minimum time to show) the "message box" is set to '2000' milliseconds (2 seconds). An update to the "message box" is allowed after this time.
 
-## fire() ##
+## `popup.fire()` ##
 
 This takes the same parameters as `message()` and also make the message visible. If no parameter is given, then it just makes the message visible. 
 
@@ -72,7 +72,7 @@ This function calls `popup.message()` and `popup.toggle()` in sequence.
 With the example, this works the same as the `popup.message()` example, except it become visible immediately.
 
 
-## extingish() ##
+## `popup.extingish()` ##
 
 This function takes four (4) parameters - three (3) as a JSON, and one other.
 
@@ -94,6 +94,8 @@ With the example,
 - If `minShowTime` is greater than zero (0), it queues the "message" and "fade out".
 - If there is no "message", it does not update the "message box".
 - If there is no `timeout`, then it starts the "fade out".
+
+----
 
 ## <a name=toast>toast()</a> ##
 
