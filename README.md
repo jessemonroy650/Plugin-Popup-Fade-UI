@@ -4,7 +4,7 @@ a popup that works likes alert() and toast(), but uses &lt;div> and position:abs
 ### Plugin Popup Fade UI ##
 Date: 2016-02-19
 
-Code for a tutorial to do a popup similar to alerts/notifications (but not modal) with HTML5 and CSS3. The element has a four (4) second transition as it fades. Change the time in the CSS (this line `transition: opacity 4s ease;`) .
+Code for a tutorial to do a popup is similar to alerts/notifications (but not modal) with HTML5 and CSS3. The element has a four (4) second transition as it fades. To change the transition time, change the time in the CSS (this line `transition: opacity **4s** ease;`) .
 
 There are five (5) modules to this object.
 
