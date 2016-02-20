@@ -30,7 +30,7 @@ This function takes three (3) parameters.
 - id      - element `id` of the popup, defaults to 'popup'
 - button  - button to tie the `popup.toggle()` to, defaults to 'toggle'. 
 
-*Example:* `popup.init({'timeout':5000,'id':'mymessagebox','button':'mybutton'});`
+*Example:* ` popup.init({'timeout':5000,'id':'mymessagebox','button':'mybutton'}); `
 
 With the example,
 - the `timeout` is set to 5000 milliseconds (5 seconds)
@@ -45,7 +45,14 @@ This function takes three (3) parameters - as a JSON.
 - backgroundColor - the background of the text
 - minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `time` with `init()` for automatic "fade out".
 
-Note: by not using `toggle()` at this point, the message window can be reused; namely with `extingish()`.
+Note: by not using `toggle()` at this point, the message box can be reused; namely with `extingish()`.
+
+*Example:* ` popup.message({'color':'white','backgroundColor':'green','minShowTime':'2000'}); `
+
+With the example,
+- the `color` of the text is set to 'white'
+- the `backgroundColor` (background-color) of the message box is set to 'green'.
+- the `minShowTime` (the minimum time to show) the message box is set to '2000'. The "fade out" starts after this time.
 
 ## fire() ##
 
