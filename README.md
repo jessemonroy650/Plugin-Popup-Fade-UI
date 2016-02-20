@@ -45,14 +45,14 @@ This function takes three (3) parameters - as a JSON.
 - backgroundColor - the background of the text
 - minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `time` with `init()` for automatic "fade out".
 
-Note: by not using `toggle()` at this point, the message box can be reused; namely with `extingish()`.
+Note: by not using `toggle()` at this point, the 'message box' can be reused; namely with `extingish()`.
 
 *Example:* ` popup.message({'color':'white','backgroundColor':'green','minShowTime':'2000'}); `
 
 With the example,
 - the `color` of the text is set to 'white'
-- the `backgroundColor` (background-color) of the message box is set to 'green'.
-- the `minShowTime` (the minimum time to show) the message box is set to '2000'. The "fade out" starts after this time.
+- the `backgroundColor` (background-color) of the 'message box' is set to 'green'.
+- the `minShowTime` (the minimum time to show) the 'message box' is set to '2000'. The "fade out" starts after this time.
 
 ## fire() ##
 
@@ -64,15 +64,17 @@ This function calls `popup.message()` and `popup.toggle()`.
 
 This function takes four (4) parameters - three (3) as a JSON, and one other.
 
-- message - This takes the same parameters as `message()`. It update the message in the message box, but first waits for `minShowTime` to elapse to zero (0). `minShowTime` was previously set.
+- message - This takes the same parameters as `message()`. It update the message in the 'message box', but first waits for `minShowTime` to elapse to zero (0). `minShowTime` was previously set.
 
 - timeout - The time to wait before starting the "fade out".
+
+This function calls `popup.message()` and `popup.toggle()`, but with the rules described below.
 
 **Rules of operation**
 
 - If `minShowTime` equals zero (0), it immediately changes the "message" and and starts the "fade out" after `timeout`.
 - If `minShowTime` is greater than zero (0), it queues the "message" and "fade out".
-- If there is no "message", it does not update the screen.
+- If there is no "message", it does not update the 'message box'.
 - If there is no `timeout`, then it starts the "fade out" with the `timeout` delay.
 
 ### How It Works ###
