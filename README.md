@@ -47,7 +47,7 @@ This function takes three (3) parameters - as a JSON.
 
 Note: by not using `toggle()` at this point, the "message box" can be reused; namely with `extingish()`.
 
-*Example:* ` popup.message({'message':'This is a message.','color':'white','backgroundColor':'green','minShowTime':'2000'}); `
+*Example:* `popup.message({'message':'This is a message.','color':'white','backgroundColor':'green','minShowTime':'2000'});`
 
 With the example,
 - the `message` (or text) of the "message box" is set to *'This is a message.'*
@@ -61,7 +61,7 @@ This takes the same parameters as `message()` and also make the message visible.
 
 This function calls `popup.message()` and `popup.toggle()`.
 
-*Example:* ` popup.fire({'color':'white','backgroundColor':'green','minShowTime':'2000'}); `
+*Example:* `popup.message({'message':'This is a message.','color':'white','backgroundColor':'green','minShowTime':'2000'});`
 
 With the example, this works the same as `popup.message()`.
 
