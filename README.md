@@ -45,11 +45,12 @@ With the example,
 
 ## `popup.message()` ##
 
-This function takes three (3) parameters - as a JSON.
+This function takes four (4) parameters as a JSON.
 
+- message         - or text to display
 - color           - the color of the text
 - backgroundColor - the background of the text
-- minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `time` with `init()` for automatic "fade out".
+- minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `timeout` with `init()` for automatic "fade out".
 
 Note: by not using `toggle()` at this point, the "message box" can be reused; namely with `extingish()`.
 
@@ -63,7 +64,7 @@ With the example,
 
 ## `popup.fire()` ##
 
-This takes the same parameters as `message()` and also make the message visible. If no parameter is given, then it just makes the message visible. 
+This takes similar parameters to `message()`, and also make the message visible. If no parameter are given, then it just makes the message visible. 
 
 This function calls `popup.message()` and `popup.toggle()` in sequence.
 
@@ -97,6 +98,8 @@ With the example,
 
 ----
 
+#Examples#
+
 ## <a name=toast>toast()</a> ##
 
 **HTML**
@@ -109,7 +112,7 @@ With the example,
 
 **explanation**
 
-Simple call `popup.fire()` with a message. It will "fade out" after the default `timeout`. Use `popup.init()` to change the `timeout`.
+Calls `popup.fire()` with a *message*. It will "fade out" after the default `timeout`. Use `popup.init()` to change the `timeout`.
 
 ## <a name=alert>alert()</a> ##
 
@@ -119,10 +122,10 @@ Simple call `popup.fire()` with a message. It will "fade out" after the default 
 
 **code**
 
-1. `popup.init({'button':'okay'});`
+1. `popup.init({'timeout':'0', 'button':'okay'});`
 2. `popup.fire({'message':'This is an alert!'});`
 
-
+Disable the "timeout" and listen for the 'okay' button to be clicked. The calls `popup.fire()` with a *message*. When the button is clicked, the "message box" goes away.
 
 ## <a name=asyncCalls>Works with asynchronous calls</a> ##
 
@@ -134,8 +137,10 @@ Simple call `popup.fire()` with a message. It will "fade out" after the default 
 
 1. `popup.init({'timeout':'0'});`
 2. `popup.fire({'message':'Fetching data.','color':'green','minShowTime':2000});`
-3. Make asynchornous call
+3. Make "asynchornous call"
 4. `popup.extingish({'message':'Got it.','color':'black'}, 2000);`
+
+Disable the "timeout". Call `popup.fire()` with a *message* and make sure it is seen for at least 2000 milliseconds (2 seconds). After the callback returns from the "asynchornous call", update the *message* then wait 2000 milliseconds (2 seconds) before the "fade out".
 
 ### How It Use it ###
 
