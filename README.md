@@ -56,23 +56,24 @@ With the example,
 
 ## fire() ##
 
-This takes the same parameters as `message()` and also make the message visible. If no parameter is given, then it just makes the message visible.
+This takes the same parameters as `message()` and also make the message visible. If no parameter is given, then it just makes the message visible. 
+
+This function calls `popup.message()` and `popup.toggle()`.
 
 ## extingish() ##
 
 This function takes four (4) parameters - three (3) as a JSON, and one other.
 
-- message - This takes the same parameters as `message()` and also make the message visible, but also waits for the `minShowTime` to elapse to zero (0). `minShowTime` should have been previously set.
+- message - This takes the same parameters as `message()`. It update the message in the message box, but first waits for `minShowTime` to elapse to zero (0). `minShowTime` was previously set.
 
 - timeout - The time to wait before starting the "fade out".
 
-If `minShowTime` equals zero (0), it immediately changes the "message" and and starts the "fade out" after `timeout`.
+**Rules of operation**
 
-If `minShowTime` is greater than zero (0), it queues the "message" and "fade out".
-
-If there is no "message", it does not update the screen.
-
-If there is no `timeout`, then it starts the "fade out" with the `timeout` delay.
+- If `minShowTime` equals zero (0), it immediately changes the "message" and and starts the "fade out" after `timeout`.
+- If `minShowTime` is greater than zero (0), it queues the "message" and "fade out".
+- If there is no "message", it does not update the screen.
+- If there is no `timeout`, then it starts the "fade out" with the `timeout` delay.
 
 ### How It Works ###
 
