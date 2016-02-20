@@ -149,10 +149,9 @@ More details
 1. With `popup.init()`, Define your own "message box" `id`, your own button `id` and the `timeout`.
 2. With `popup.message()`, fill the "message box".
 3. With `popup.fire()`, make the "message box" visible.
-    - If you do not run `popup.init()`, you will have to programatically use `popup.toggle()` or `popup.extingish()` to make the "message box" "fade out".
-    - If the `timeout = '0'`, then it will not automatically "fade out". This means, if set `timeout = '0'`, then you have to manually run `popup.toggle()` or `popup.fire()`. **NOTE:** Zero ('0') is a string.
+    - If the `timeout = '0'`, then it will not automatically "fade out". This means, if set `timeout = '0'`, then you have to programatically us `popup.toggle()` or `popup.extingish()` to make the "message box" "fade out". **NOTE:** Zero ('0') is a string.
     - If the `timeout > 0`, then it will "fade out" after `popup.timeout` (milliseconds).
-4. With `popup.extingish()`, update the message, wait a bit (`popup.timeout`), and "fade out"
+4. With `popup.extingish()`, update the message, wait a bit (`popup.timeout`), and "fade out". Or with `popup.toggle()` just "fade out".
 
 ### Important Appearance Attributes in the CSS ##
 
