@@ -5,6 +5,7 @@ var popup = {
     visible     : 0,    // This indicate the pop is not visible.
     timeout     : 7000,
     id          : 'popup',
+    theText     : 'message', // This is where we put the text
     button      : 'toggle',
     once        : 1,
     minShowTime : 0,
@@ -15,8 +16,6 @@ var popup = {
             popup.timeout = (parms.timeout) ? parms.timeout : 7000;
             popup.id      = (parms.id)      ? parms.id      : 'popup';
             popup.button  = (parms.button)  ? parms.button  : 'toggle';
-        } else {
-            popup.button = '';  // disable the button
         }
         if (popup.button) {
             document.getElementById(popup.button).addEventListener('click', function() {
@@ -69,7 +68,8 @@ var popup = {
                 }
             }, popup.minShowTime);
         }
-        document.getElementById(popup.id).innerHTML = obj.message;
+        console.log(popup.text);
+        document.getElementById(popup.theText).innerHTML = obj.message;
     },
     fire : function (obj) {
         console.log('fire:', JSON.stringify(obj));
@@ -84,11 +84,11 @@ var popup = {
         var messageAndFadeOut = function () {
             // change the message, if we have a new one.
             if (obj) { popup.message(obj); }
-            // remove the popup, after `timeout`
+            // remove from screen, after timeout
             if (timeout) {
                 setTimeout(function () { popup.toggle(); }, timeout);
             } else {
-                popup.toggle();
+                 popup.toggle();
             }
         }
         if ( popup.minShowTime == 0 ) {
