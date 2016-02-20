@@ -8,7 +8,6 @@ var popup = {
     button      : 'toggle',
     once        : 1,
     minShowTime : 0,
-    timeMark    : 0,
     queued      : null,
     init : function (parms) {
         //console.log("popup.init:",JSON.stringify(parms));
@@ -16,6 +15,8 @@ var popup = {
             popup.timeout = (parms.timeout) ? parms.timeout : 7000;
             popup.id      = (parms.id)      ? parms.id      : 'popup';
             popup.button  = (parms.button)  ? parms.button  : 'toggle';
+        } else {
+            popup.button = '';  // disable the button
         }
         if (popup.button) {
             document.getElementById(popup.button).addEventListener('click', function() {
@@ -83,11 +84,11 @@ var popup = {
         var messageAndFadeOut = function () {
             // change the message, if we have a new one.
             if (obj) { popup.message(obj); }
-            // remove from screen, after timeout
+            // remove the popup, after `timeout`
             if (timeout) {
                 setTimeout(function () { popup.toggle(); }, timeout);
             } else {
-                 popup.toggle();
+                popup.toggle();
             }
         }
         if ( popup.minShowTime == 0 ) {

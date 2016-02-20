@@ -45,14 +45,15 @@ This function takes three (3) parameters - as a JSON.
 - backgroundColor - the background of the text
 - minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `time` with `init()` for automatic "fade out".
 
-Note: by not using `toggle()` at this point, the 'message box' can be reused; namely with `extingish()`.
+Note: by not using `toggle()` at this point, the "message box" can be reused; namely with `extingish()`.
 
-*Example:* ` popup.message({'color':'white','backgroundColor':'green','minShowTime':'2000'}); `
+*Example:* ` popup.message({'message':'This is a message.','color':'white','backgroundColor':'green','minShowTime':'2000'}); `
 
 With the example,
+- the `message` (or text) of the "message box" is set to *'This is a message.'*
 - the `color` of the text is set to 'white'
-- the `backgroundColor` (background-color) of the 'message box' is set to 'green'.
-- the `minShowTime` (the minimum time to show) the 'message box' is set to '2000'. The "fade out" starts after this time.
+- the `backgroundColor` (background-color) of the "message box" is set to 'green'.
+- the `minShowTime` (the minimum time to show) the "message box" is set to '2000'. The "fade out" starts after this time.
 
 ## fire() ##
 
@@ -60,31 +61,44 @@ This takes the same parameters as `message()` and also make the message visible.
 
 This function calls `popup.message()` and `popup.toggle()`.
 
+*Example:* ` popup.fire({'color':'white','backgroundColor':'green','minShowTime':'2000'}); `
+
+With the example, this works the same as `popup.message()`.
+
+
 ## extingish() ##
 
 This function takes four (4) parameters - three (3) as a JSON, and one other.
 
-- message - This takes the same parameters as `message()`. It update the message in the 'message box', but first waits for `minShowTime` to elapse to zero (0). `minShowTime` was previously set.
+- message - This takes the similar parameters as `message()`. It update the message in the "message box", but first waits for `minShowTime` to elapse to zero (0). `minShowTime` was previously set with `popup.message()` or `popup.fire()`.
 
 - timeout - The time to wait before starting the "fade out".
 
-This function calls `popup.message()` and `popup.toggle()`, but with the rules described below.
+
+*Example:* ` popup.extingish({'message':'Yeah!','color':'black','backgroundColor':'tan'}, 2000); `
+
+With the example, 
+- the `message` (or text) of the "message box" is set to *Yeah!*
+- the `color` of the text is set to 'black'
+- the `backgroundColor` (background-color) of the "message box" is set to 'tan'.
+- 2000 is the time (in milliseconds) to wait before starting the "fade out"
 
 **Rules of operation**
 
 - If `minShowTime` equals zero (0), it immediately changes the "message" and and starts the "fade out" after `timeout`.
 - If `minShowTime` is greater than zero (0), it queues the "message" and "fade out".
-- If there is no "message", it does not update the 'message box'.
-- If there is no `timeout`, then it starts the "fade out" with the `timeout` delay.
+- If there is no "message", it does not update the "message box".
+- If there is no `timeout`, then it starts the "fade out".
 
-### How It Works ###
+### How It Use it ###
 
-- If the `timeout = '0'`, then it will not automatically "fade out". This means, if you manually `popup.toggle()` and set `timeout = '0'`, then you have to manually `popup.toggle()`. NOTE: Zero ('0') is a string.
-
-- If the `timeout > 0`, then it will "fade out" after *popup.timeout* (milliseconds).
-
-- If you do not run `popup.init()`, you will have to programatically `popup.toggle()` or use `popup.fire()`.
-
+1. With `popup.init()`, Define your own "message box" `id`, your own button `id` and the `timeout`.
+2. With `popup.message()`, fill the "message box".
+3. With `popup.fire()`, make the "message box" visible.
+    - If you do not run `popup.init()`, you will have to programatically use `popup.toggle()` or `popup.extingish()` to make the "message box" "fade out".
+    - If the `timeout = '0'`, then it will not automatically "fade out". This means, if set `timeout = '0'`, then you have to manually run `popup.toggle()` or `popup.fire()`. **NOTE:** Zero ('0') is a string.
+    - If the `timeout > 0`, then it will "fade out" after `popup.timeout` (milliseconds).
+4. With `popup.extingish()`, update the message, wait a bit (`popup.timeout`), and "fade out"
 
 
 ### Important Appearance Attributes in the CSS ##
