@@ -38,11 +38,12 @@ var app = {
         // Requires the 'device' plugin
         return;
         // A bug in Phonegap does not allow us to use the `id=cordova`
-        document.getElementById('acordova').innerHTML = device.cordova;
+     /* document.getElementById('acordova').innerHTML = device.cordova;
         document.getElementById('model').innerHTML = device.model;
         document.getElementById('platform').innerHTML = device.platform;
         document.getElementById('uuid').innerHTML = device.uuid;
         document.getElementById('version').innerHTML = device.version;
+      */
     }
 };
 
