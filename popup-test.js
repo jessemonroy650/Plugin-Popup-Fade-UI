@@ -18,6 +18,7 @@ var URLthatDelays = "http://codesnippets.altervista.org/examples/html5/tutorial-
 function loadScreenButton () {
     document.getElementById('launch').addEventListener('click', function() {
         console.log('launch');
+        $('#dbug').html('launch');
         console.log('URLthatDelays:', URLthatDelays);
         $.get(URLthatDelays).done(function(data){
             console.log('callback data:', data);
