@@ -1,5 +1,14 @@
 /*
     Date: 2016-02-20
 */
-
-.alert {position:relative;bottom:-105px;right:-200px}
+.alertHeader {
+color:black;
+background-color:#ffdead;
+height:1em;
+text-align:center;
+padding:0.5em;
+border:1px solid black;
+border-radius: 0.5em;
+}
+.alertMessage {padding:0.2em;backgroundColor:#eee8dc;color:black;}
+.alertButton {position:absolute;bottom:20px;right:20px}
