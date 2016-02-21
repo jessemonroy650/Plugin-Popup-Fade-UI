@@ -13,10 +13,20 @@ function doAlert() {
     popup.fire();
 }
 
-/*
-function 
-http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/wait.php?wait=5
+var URLthatDelays = "http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/wait.php?wait=1";
 
+function loadScreenButton () {
+    document.getElementById('launch').addEventListener('click', function() {
+        console.log('launch');
+        console.log('URLthatDelays:', URLthatDelays);
+        $.get(URLthatDelays).done(function(data){
+            console.log('callback data:', data);
+            $('#dbug').html('callback data:' + data);
+        });
+    });
+}
+
+/*
         // This is in the popup
         document.getElementById('timeouttime').innerHTML = popup.timeout/1000;
         // Required to initialize the default button to `popup.toggle()`

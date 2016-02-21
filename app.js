@@ -28,9 +28,11 @@ var app = {
             app.phonegapStuff();
         }
         // Toast example
-        makeToast();
+        //makeToast();
         // Wait for 'toast' example to finish
-        setTimeout(doAlert,12000);
+        //setTimeout(doAlert,12000);
+        // Load the button and async example
+        loadScreenButton();
     },
     phonegapStuff : function () {
         // Requires the 'device' plugin
