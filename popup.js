@@ -15,6 +15,7 @@ var popup = {
         if (parms) {
             popup.timeout = (parms.timeout) ? parms.timeout : 7000;
             popup.id      = (parms.id)      ? parms.id      : 'popup';
+            popup.theText = (parms.mid)     ? parms.mid     : 'message';
             popup.button  = (parms.button)  ? parms.button  : 'toggle';
         }
         if (popup.button) {
@@ -68,11 +69,12 @@ var popup = {
                 }
             }, popup.minShowTime);
         }
-        console.log(popup.text);
+        console.log('popup.theText',popup.theText);
         document.getElementById(popup.theText).innerHTML = obj.message;
     },
     fire : function (obj) {
-        console.log('fire:', JSON.stringify(obj));
+        var strg = (obj) ? JSON.stringify(obj) : "";
+        console.log('fire:', strg);
         // Set the message
         if (obj) {
             popup.message(obj);
@@ -80,7 +82,8 @@ var popup = {
         popup.toggle();        
     },
     extingish : function (obj, timeout) {
-        console.log('extingish:', JSON.stringify(obj), timeout);
+        var strg = (obj) ? JSON.stringify(obj) : "";
+        console.log('extingish:', strg, timeout);
         var messageAndFadeOut = function () {
             // change the message, if we have a new one.
             if (obj) { popup.message(obj); }
@@ -99,5 +102,7 @@ var popup = {
         }
     }
 };
+
+//}();
 
 //console.log('togglePopup() loaded.');

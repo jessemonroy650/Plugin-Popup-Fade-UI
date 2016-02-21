@@ -27,14 +27,10 @@ var app = {
         if (device.platform != 'browser') {
             app.phonegapStuff();
         }
-        // This is in the popup
-        document.getElementById('timeouttime').innerHTML = popup.timeout/1000;
-        // Required to initialize the default button to `popup.toggle()`
-        //popup.init();
-        // Example of different `popup.id` and `button.id`
-        //popup.init({'id':'popupx','button':'togglex'});
-        // Example of delayed 'popup' with default setting, but no button to toggle.
-        setTimeout(popup.toggle , 5000);
+        // Toast example
+        makeToast();
+        // Wait for 'toast' example to finish
+        setTimeout(doAlert,12000);
     },
     phonegapStuff : function () {
         // Requires the 'device' plugin
