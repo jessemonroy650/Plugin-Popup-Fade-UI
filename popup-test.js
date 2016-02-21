@@ -17,6 +17,7 @@ var URLthatDelays = "http://codesnippets.altervista.org/examples/html5/tutorial-
 
 function loadScreenButton () {
     document.getElementById('launch').addEventListener('click', function() {
+        popup.init({'id':'popup','mid':'message', 'timeout':'0'});
         popup.fire({'message':'<p>&nbsp;<p>Getting data.','color':'blue','minShowTime':2000});
         $.get(URLthatDelays, function(data){
             popup.extingish({'message':'<p>&nbsp;<p>Got it.','color':'black'}, 2000);
