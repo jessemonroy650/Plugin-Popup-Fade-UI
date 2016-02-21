@@ -20,9 +20,18 @@ function loadScreenButton () {
         console.log('launch');
         $('#dbug').html('launch');
         console.log('URLthatDelays:', URLthatDelays);
-        $.get(URLthatDelays).done(function(data){
+/*
+        $.get(URLthatDelays, function(data){
             console.log('callback data:', data);
             $('#dbug').html('callback data:' + data);
         });
+*/
+jQuery.ajax({
+url: URLthatDelays,
+crossDomain: true
+}).done(function(data) {
+$('#dbug').html('callback data:' + data);
+});
+
     });
 }

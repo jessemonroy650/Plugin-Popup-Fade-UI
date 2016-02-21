@@ -33,7 +33,7 @@ var app = {
         // Wait for 'toast' example to finish
         setTimeout(doAlert,12000);
         // Load the button and async example
-        //loadScreenButton();
+        loadScreenButton();
         $('#dbug').html('deviceready done.');
     },
     phonegapStuff : function () {
