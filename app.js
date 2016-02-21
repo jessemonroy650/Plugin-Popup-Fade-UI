@@ -32,6 +32,7 @@ var app = {
         makeToast();
         // Wait for 'toast' example to finish
         setTimeout(doAlert,12000);
+        //doAlert();
         // Load the button and async example
         loadScreenButton();
         $('#dbug').html('deviceready done.');

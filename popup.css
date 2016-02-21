@@ -5,7 +5,7 @@
   padding:0;
   background-color:#eeeeee; /* not quite white */
   border:1px black solid;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   /* position related */
   position:absolute;
   left:10px;
@@ -16,3 +16,4 @@
   visibility: collapse;
   transition: opacity 4s ease;
 }
+.message {padding:0.2em;}
