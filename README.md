@@ -30,11 +30,11 @@ There are five (5) modules to this object.
 
 ## `popup.init()` ##
 
-This function takes three (3) parameters.
+This function takes four (4) parameters.
 
 - timeout - milliseconds to delay before the element starts to fade out, defaults to 7000. Set to zero ('0' string) to disable.
 - id      - `id` of the popup, defaults to 'popup'.
-- message - `id` of the "text", defaults to 'message'.
+- mid     - `id` of the "text", defaults to 'message'.
 - button  - button to tie the `popup.toggle()` to, defaults to 'toggle'. Set to `null` to disable the "eventListener".
 
 *Example:* ` popup.init({'timeout':5000,'id':'mymessagebox', 'mid':'mymessage','button':'mybutton'}); `
