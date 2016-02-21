@@ -13,25 +13,18 @@ function doAlert() {
     popup.fire();
 }
 
-var URLthatDelays = "http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/wait.php?wait=1";
+var URLthatDelays = "http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/wait.php?wait=5";
 
 function loadScreenButton () {
     document.getElementById('launch').addEventListener('click', function() {
-        console.log('launch');
+        //console.log('launch');
         $('#dbug').html('launch');
-        console.log('URLthatDelays:', URLthatDelays);
+        popup.fire({'message':'<p>&nbsp;<p>Getting data.','color':'green','minShowTime':2000});
+        //console.log('URLthatDelays:', URLthatDelays);
         $.get(URLthatDelays, function(data){
-            console.log('callback data:', data);
+            popup.extingish({'message':'<p>&nbsp;<p>Got it.','color':'black'}, 2000);
+            //console.log('callback data:', data);
             $('#dbug').html('callback data:' + data);
         });
-/*
-jQuery.ajax({
-url: URLthatDelays,
-crossDomain: true
-}).done(function(data) {
-$('#dbug').html('callback data:' + data);
-});
-*/
-
     });
 }
