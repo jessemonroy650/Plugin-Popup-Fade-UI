@@ -5,6 +5,7 @@ var app = {
     self : {},
 
     onDeviceReady : function () {
+        $('#dbug').html('deviceready.');
         if (device.platform === "iOS") {
             // hide Exit button. They don't have one on iOS devices.
             document.getElementById('exitApp').classList.add("hidden");
@@ -33,6 +34,7 @@ var app = {
         setTimeout(doAlert,12000);
         // Load the button and async example
         //loadScreenButton();
+        $('#dbug').html('deviceready done.');
     },
     phonegapStuff : function () {
         // Requires the 'device' plugin

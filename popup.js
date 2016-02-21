@@ -20,6 +20,8 @@ var popup = {
         }
         if (popup.button) {
             document.getElementById(popup.button).addEventListener('click', function() {
+                console.log(popup.button + ' clicked');
+                $('#dbug').html(popup.button + ' clicked');
                 popup.toggle();
             });
         }
