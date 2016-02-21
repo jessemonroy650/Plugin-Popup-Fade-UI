@@ -32,7 +32,7 @@ var app = {
         // Wait for 'toast' example to finish
         setTimeout(doAlert,12000);
         // Load the button and async example
-        loadScreenButton();
+        //loadScreenButton();
     },
     phonegapStuff : function () {
         // Requires the 'device' plugin
