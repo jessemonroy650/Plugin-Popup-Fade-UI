@@ -1,5 +1,5 @@
 # Plugin-Popup-Fade-UI
-a popup that works likes alert() and toast(), but uses &lt;div> and position:absolute to accomplish the task.
+a popup notificaion, like alert() and toast(), that works across async calls - uses only HTML,CSS, and Javascript
 
 There are basically three (3) modes of operations.
 
