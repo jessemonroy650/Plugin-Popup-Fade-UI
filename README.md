@@ -7,6 +7,8 @@ There are basically three (3) modes of operations.
 2. Works like alert(). See [alert()](#alert) below
 3. Works with asynchronous calls. See [below](#asyncCalls)
 
+[[LIVE DEMO](http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/)]
+
 ## Plugin Popup Fade UI ##
 Date: 2016-02-19
 
