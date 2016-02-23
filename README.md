@@ -7,7 +7,7 @@ There are basically three (3) modes of operations.
 2. Works like alert(). See [alert()](#alert) below
 3. Works with asynchronous calls. See [below](#asyncCalls)
 
-[[LIVE DEMO](http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/)]
+[[LIVE DEMO](http://codesnippets.altervista.org/examples/html5/tutorial-popup-fade/)] - [[Blog]()]
 
 ## Plugin Popup Fade UI ##
 Date: 2016-02-19
@@ -32,20 +32,22 @@ There are five (5) modules to this object.
 
 ## `popup.init()` ##
 
-This function takes four (4) parameters.
+This function can take five (5) parameters.
 
-- timeout - milliseconds to delay before the element starts to fade out, defaults to 7000. Set to zero ('0' string) to disable.
-- id      - `id` of the popup, defaults to 'popup'.
-- mid     - `id` of the "text", defaults to 'message'.
-- button  - button to tie the `popup.toggle()` to, defaults to 'toggle'. Set to `null` to disable the "eventListener".
+- timeout     - milliseconds to delay before the element starts to fade out, defaults to 7000. Set to zero ('0' string) to disable.
+- id          - `id` of the popup, defaults to 'popup'.
+- mid         - `id` of the "text", defaults to 'message'.
+- button      - button to tie the `popup.toggle()` to, defaults to 'toggle'. Set to `null` to disable the "eventListener".
+- btnCallback - function to call after button is clicked
 
-*Example:* ` popup.init({'timeout':5000,'id':'mymessagebox', 'mid':'mymessage','button':'mybutton'}); `
+*Example:* ` popup.init({'timeout':5000,'id':'mymessagebox', 'mid':'mymessage','button':'mybutton', 'btnCallback': doOther}); `
 
 With the example,
 - the `timeout` is set to 5000 milliseconds (5 seconds).
 - 'id' is the `id` of the &lt;div&gt; is 'mymessagebox'.
 - 'mid' is the `id` of the &lt;div&gt;, that will hold the message, is 'mymessage'.
 - 'button' is the `id` of the &lt;button&gt;, that is used to toggle the message, is 'mybutton'.
+- 'btnCallback' is the name of the function (in this case 'doOther') to call after the [button] click and `toggle()`.
 
 ## `popup.message()` ##
 
@@ -55,6 +57,7 @@ This function takes four (4) parameters as a JSON.
 - color           - the color of the text
 - backgroundColor - the background of the text
 - minShowTime     - the minimum time the message should be shown. Setting the parameter does not automatically "fade out" the message. Set `timeout` with `init()` for automatic "fade out".
+- queued          - 
 
 Note: by not using `toggle()` at this point, the "message box" can be reused; namely with `extingish()`.
 
@@ -65,6 +68,7 @@ With the example,
 - the `color` of the text is set to 'white'
 - the `backgroundColor` (background-color) of the "message box" is set to 'green'.
 - the `minShowTime` (the minimum time to show) the "message box" is set to '2000' milliseconds (2 seconds). An update to the "message box" is allowed after this time.
+- the `queued` function to call after `minShowTime` has been called
 
 ## `popup.fire()` ##
 

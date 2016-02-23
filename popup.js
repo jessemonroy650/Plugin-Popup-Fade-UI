@@ -2,28 +2,34 @@
     Date: 2016-02-19
 */
 var popup = {
-    visible     : 0,    // This indicate the pop is not visible.
-    timeout     : 7000,
-    id          : 'popup',
-    theText     : 'message', // This is where we put the text
-    button      : 'toggle',
+    visible     : 0,         // This indicate the pop is not visible.
+    timeout     : 7000,      // 7 seconds
+    id          : 'popup',   // default `id` for messagebox.
+    theText     : 'message', // default `id` for element that stores the message.
+    button      : 'toggle',  // default `id` for button we use.
     once        : 1,
     minShowTime : 0,
     queued      : null,
+    btnCallback : null,
+    btnListener : function(e) {
+        $('#dbug').html(popup.button + ' clicked');
+        popup.toggle();
+        if (popup.btnCallback) {
+            popup.btnCallback();
+        }
+    },
     init : function (parms) {
-        //console.log("popup.init:",JSON.stringify(parms));
+        console.log("popup.init:",JSON.stringify(parms));
         if (parms) {
             popup.timeout = (parms.timeout) ? parms.timeout : 7000;
             popup.id      = (parms.id)      ? parms.id      : 'popup';
             popup.theText = (parms.mid)     ? parms.mid     : 'message';
             popup.button  = (parms.button)  ? parms.button  : 'toggle';
+            popup.btnCallback  = (parms.btnCallback)  ? parms.btnCallback  : null;
         }
         if (popup.button) {
-            document.getElementById(popup.button).addEventListener('click', function() {
-                console.log(popup.button + ' clicked');
-                $('#dbug').html(popup.button + ' clicked');
-                popup.toggle();
-            });
+            // This does not double assign. See NOTES.md
+            document.getElementById(popup.button).addEventListener('click', popup.btnListener, false);
         }
     },
     toggle : function () {
@@ -45,6 +51,7 @@ var popup = {
             popup.visible = 0;
             popup.once    = 0;
         }
+        //console.log('POST toggle:', JSON.stringify(popup))
         // if 'timeout' is set to zero, this never fires
         // This allows a single message that fades after timeout, like toast().
         if (popup.timeout > 0) {
@@ -52,6 +59,7 @@ var popup = {
                 setTimeout(popup.toggle, popup.timeout);
             }
         }
+        //console.log('POST timeout:', JSON.stringify(popup))
     },
     message : function (obj) {
         if ('color' in obj) {
@@ -60,18 +68,21 @@ var popup = {
         if ('backgroundColor' in obj) {
             document.getElementById(popup.id).style.backgroundColor = obj.backgroundColor;
         }
+        if ('queued' in obj) {
+            popup.queued = obj.queued;
+        }
         if ('minShowTime' in obj) {
             console.log('minShowTime:', obj.minShowTime);
             popup.minShowTime = obj.minShowTime;
             setTimeout(function() {
                 popup.minShowTime = 0;
                 if (typeof popup.queued == 'function') {
-                    console.log('popup.queued() fired');
+                    //console.log('popup.queued() fired');
                     popup.queued();
                 }
             }, popup.minShowTime);
         }
-        console.log('popup.theText',popup.theText);
+        //console.log('popup.theText',popup.theText);
         document.getElementById(popup.theText).innerHTML = obj.message;
     },
     fire : function (obj) {
@@ -97,14 +108,12 @@ var popup = {
             }
         }
         if ( popup.minShowTime == 0 ) {
-            console.log('messageAndFadeOut() fired');
+            //console.log('messageAndFadeOut() fired');
             messageAndFadeOut();
         } else {
             popup.queued = messageAndFadeOut;
         }
     }
 };
-
-//}();
 
 //console.log('togglePopup() loaded.');

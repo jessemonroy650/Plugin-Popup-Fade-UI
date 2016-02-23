@@ -23,13 +23,7 @@ var app = {
         } else if (device.platform == 'browser') {
             document.getElementById('exitApp').classList.add("hidden");
         }
-        // Toast example
-        makeToast();
-        // Wait for 'toast' example to finish
-        setTimeout(doAlert,12000);
-        //doAlert();
-        // Load the button and async example
-        loadScreenButton();
+        runStyleText();
         $('#dbug').html('deviceready done.');
     }
 };

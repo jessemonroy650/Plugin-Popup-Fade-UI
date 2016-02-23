@@ -1,0 +1,65 @@
+/*
+    Date: 2016-02-20
+*/
+.notificationHeader {
+color:black;
+background-color:#ff8888;
+height:1em;
+text-align:center;
+padding:0.5em;
+border:1px solid black;
+border-radius: 0.2em;
+}
+.notificationMessage {padding:0.2em;backgroundColor:#coe8dc;color:black;}
+.notificationButton {
+position:absolute;
+bottom:10px;
+right:115px
+}
+
+/* style-from: http://www.anirbanadak.com/cool-notification-messages-html-css */
+
+.popupHide {
+  /* fade in and out */
+  opacity: 0;
+  /* WITHOUT THIS THE BUTTON UNDERNEATH IS BLOCKED */
+  visibility: collapse;
+}
+
+.popupPosition {
+  position:absolute;
+  left:0;
+  top:50px;
+}
+
+.message {
+    margin: 20px 0;
+    padding: 10px 20px 5px 42px;
+    min-height: 22px;
+}
+.message p {
+    margin: 0 0 0.45em;
+}
+.message.critical {
+    border: 1px solid #f5d1d1;
+    background:#fdd url(images/msg-err.png) no-repeat 8px 8px;
+    color: #800 !important;	
+}
+ 
+.message.success {
+    border: 1px solid #cce6bb;
+    background:#def6cf url(images/msg-tick.png) no-repeat 8px 7px;
+    color: #265708 !important;
+}
+ 
+.message.important {
+    border: 1px solid #dace89;
+    background:#ffb url(images/i-important.png) no-repeat 8px 7px;
+    color: #000 !important;
+}
+ 
+.message.standard {
+    border: 1px solid #cddbea;
+    background:#e6ebf0 url(images/i-std.png) no-repeat 8px 7px;
+    color: #2e5c99 !important;
+}
